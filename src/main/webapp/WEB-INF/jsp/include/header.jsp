@@ -9,13 +9,11 @@
 					timeline
 				</div>
 			</div>
-<!-- 
 			<div class="header-nav">
 				Nav bar here
 				
 				<c:if test="${not empty userName }">
-					<div class="mr-4">${userName }님 <a href="/user/sign_out">로그아웃</a> </div>
+					<div class="mr-4">${userName }님 <a href="/anecdot/user/signout">로그아웃</a> </div>
 				</c:if>
 			</div>
--->
 		</header>

@@ -25,36 +25,34 @@
 		
 		<section class="content">
 			<div class="create-post">
-				<div class="post-title">
-					<input id="titleInput" type="text" class="form-control form-control-lg" style="border:none" placeholder="제목">
-				</div>
-				
-				<div class="post-content">
-					<textarea id="contentInput" class="form-control" rows="20" style="border:none"></textarea>
-				</div>
-				
-				<div class="post-upload">
-					<div class="post-upload-files">
-						<div class="selectImage">					
-							<i class="bi-image" id="imgBtn"></i>
-							<input type="file" id="imageUpload" class="d-none">
-						</div>
-						<!-- 
-						<div class="insertLink">
-							<i class="bi-link"></i>
-						</div>
-						
-						<div class="insertTag">
-							<i class="bi-tag"></i>
-						</div>
-						 -->
+				<form class="postForm" method="post" enctype="multipart/form-data">
+					<div class="post-title">
+						<input id="titleInput" type="file" name="uploadFile" class="form-control form-control-lg" style="border:none" placeholder="제목">
 					</div>
 					
-					<div class="post-upload-buttons">
-						<button type="submit" id="deleteBtn" class="btn btn-secondary">Delete</button>
-						<button type="submit" id="submitBtn" class="btn btn-secondary">Submit</button>
+					<div class="post-content">
+						<textarea id="contentInput" name="uploadFile" class="form-control" rows="20" style="border:none"></textarea>
 					</div>
-				</div>
+					
+					<div class="post-upload">
+						<div class="post-upload-files">
+							<div class="selectImage">					
+								<i class="bi-image imgBtn"></i>
+								<input id="imageInput" type="file" name="uploadFile" class="d-none">
+							</div>
+								
+							<!-- <div class="select-image-options">
+								<i class="bi-link imgPublicBtn d-none"></i>
+								<i class="bi-tag imgGalleryBtn d-none"></i>
+							</div> -->
+						</div>
+							
+						<div class="post-upload-buttons">
+							<button type="button" id="deleteBtn" class="btn btn-secondary">Delete</button>
+							<button type="submit" id="submitBtn" class="btn btn-secondary">Submit</button>
+						</div>
+					</div>
+				</form>
 			</div>
 		</section>
 		
@@ -66,38 +64,68 @@
 		
 		$(document).ready(function() {
 			
-			$("#imgBtn").on("click", function() {
-				$("#imageUpload").click();
+			$(".imgBtn").on("click", function() {
+				$("#imageInput").click();
 			});
 			
 			
-			$("#submitBtn").on("submit", function() {
+			$(".postForm").on("submit", function() {
 				
-				var title = $("#titleInput").val().trim();
-				var content = $("#contentInput").val().trim();
+				let title = $("#titleInput").val().trim();
+				let content = $("#contentInput").val().trim();
+				var images = $("#imageInput");
 				
 				if(title == "" || title == null) {
 					alert("Enter title");
 					return;
 				}
 				
+				var formData = new FormData();
+				formData.append('title', title);
+				formData.append('content', content);
+				
+				for(var i = 0; i < images.length; i++) {
+					
+					if(images[i].files.length > 0) {
+						for(var j = 0; j < images[i].files.length; j++) {
+							console.log("images[i].files[j] :::" + images[i].files[j]);
+							
+							formData.append('image', $("#imageInput")[i].files[j]);
+						}
+					}
+					
+				}
+				
+				formData.append('key', new Blob([ JSON.stringify(data)], {type: "application/json"}));
+				
 				$.ajax({
 					type:"post",
 					url:"/post/create",
-					data:{"title":title, "content":content},
+					data:formData,
+					contentType:false,
+					processData:false,
+					enctype:'multipart/form-data',
 					success:function(data) {
 						if(data.result == "success") {
 							alert("success");
 						} else {
-							alert("fail");
+							alert("failes");
 						}
 					},
 					error:function() {
-						alert("Error");
+						alert("error");
 					}
 				});
-						
+				
+				
+				
+				
+				
+				
+			
+				
 			});
+			
 			
 		});
 		

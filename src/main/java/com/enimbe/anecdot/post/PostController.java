@@ -7,9 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/anecdot/post")
 public class PostController {
-	
+
 	@GetMapping("/create")
-	public String createPost() {
+	public String create() {
 		return "post/create";
+	}
+	
+	@GetMapping("/home")
+	public String home() {
+		return "post/home";
 	}
 }

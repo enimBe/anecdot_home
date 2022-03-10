@@ -46,6 +46,7 @@ header > .header-nav {
 
 .container > .content {
 	width: 100%;
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -61,64 +62,37 @@ header > .header-nav {
 	margin-top: 30px;
 }
 
-.container > .content > .create-post > .post-title {
+.container > .content > .create-post > .postForm > .post-title {
 	margin-bottom: 10px;
 	border-bottom: solid 1.5px gray;
 }
 
-.container > .content > .create-post > .post-content {
+.container > .content > .create-post > .postForm > .post-content {
 	border-bottom: solid 1.5px gray;
 }
 
-.container > .content > .create-post > .post-upload {
+.container > .content > .create-post > .postForm > .post-upload {
 	height: 60px;
 	display: flex;
 	justify-content: space-between;
-	
 }
 
-.container > .content > .create-post > .post-upload > .post-upload-files {
+.container > .content > .create-post > .postForm > .post-upload > .post-upload-files {
 	width: 130px;
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
+	align-items: center;
 	
-	border: solid;
 }
 
-.container > .content > .create-post > .post-upload > .post-upload-files > .img-icon {
+.container > .content > .create-post > .postForm > .post-upload > .post-upload-files > .selectImgae > .imgBtn {
 	display: inline-block;
 	width: 200px;
 }
 
-.container > .content > .create-post > .post-upload > .post-upload-buttons {
+.container > .content > .create-post > .postForm > .post-upload > .post-upload-buttons {
 	width: 160px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

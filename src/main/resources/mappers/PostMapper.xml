@@ -8,7 +8,7 @@
  	<insert id="insertPost" parameterType="map">
  		INSERT INTO `post`
  		(
- 			`userID`
+ 			`userId`
  			, `title`
  			, `content`
  			, `createdAt`
@@ -16,9 +16,32 @@
  		)
  		VALUES
  		(
- 			#{userID}
+ 			#{userId}
  			, #{title}
  			, #{content}
+ 			, now()
+ 			, now()
+ 		)
+ 	</insert>
+ 	
+ 	<insert id="insertImage" parameterType="map">
+ 		INSERT INTO `images`
+ 		(
+ 			`userId`
+ 			, `postId`
+ 			, `imagePath`
+ 			, `gallery`
+ 			, `public`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{userId}
+ 			, #{postId}
+ 			, #{imagePath}
+ 			, #{gallery}
+ 			, #{public}
  			, now()
  			, now()
  		)
