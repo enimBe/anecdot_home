@@ -5,7 +5,7 @@
  
  <mapper namespace="com.enimbe.anecdot.post.dao.PostDAO">
  
- 	<insert id="insertPost" parameterType="map">
+ 	<insert id="insertPost" parameterType="com.enimbe.anecdot.post.model.Post" useGeneratedKeys="true" keyProperty="id">
  		INSERT INTO `post`
  		(
  			`userId`
@@ -23,6 +23,21 @@
  			, now()
  		)
  	</insert>
+ 	
+ 	<select id="selectPost" parameterType="int" resultType="com.enimbe.anecdot.post.model.Post">
+ 		SELECT 
+ 			`id`
+ 			, `userId`
+ 			, `title`
+ 			, `content`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`post`
+ 		WHERE
+ 			`id` = #{id}
+ 	</select>
+ 	
  	
  	<insert id="insertImage" parameterType="map">
  		INSERT INTO `images`

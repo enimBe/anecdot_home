@@ -25,20 +25,20 @@
 		
 		<section class="content">
 			<div class="create-post">
-				<form class="postForm" method="post" enctype="multipart/form-data">
+				<form class="postForm">
 					<div class="post-title">
-						<input id="titleInput" type="file" name="uploadFile" class="form-control form-control-lg" style="border:none" placeholder="제목">
+						<input id="titleInput" class="form-control form-control-lg" style="border:none" placeholder="제목">
 					</div>
 					
 					<div class="post-content">
-						<textarea id="contentInput" name="uploadFile" class="form-control" rows="20" style="border:none"></textarea>
+						<textarea id="contentInput" class="form-control" rows="20" style="border:none"></textarea>
 					</div>
 					
 					<div class="post-upload">
 						<div class="post-upload-files">
 							<div class="selectImage">					
 								<i class="bi-image imgBtn"></i>
-								<input id="imageInput" type="file" name="uploadFile" class="d-none">
+								<input id="imageInput" class="d-none">
 							</div>
 								
 							<!-- <div class="select-image-options">
@@ -73,7 +73,6 @@
 				
 				let title = $("#titleInput").val().trim();
 				let content = $("#contentInput").val().trim();
-				var images = $("#imageInput");
 				
 				if(title == "" || title == null) {
 					alert("Enter title");
@@ -83,20 +82,7 @@
 				var formData = new FormData();
 				formData.append('title', title);
 				formData.append('content', content);
-				
-				for(var i = 0; i < images.length; i++) {
-					
-					if(images[i].files.length > 0) {
-						for(var j = 0; j < images[i].files.length; j++) {
-							console.log("images[i].files[j] :::" + images[i].files[j]);
-							
-							formData.append('image', $("#imageInput")[i].files[j]);
-						}
-					}
-					
-				}
-				
-				formData.append('key', new Blob([ JSON.stringify(data)], {type: "application/json"}));
+				formData.append('image', $("#imageInput")[0].files[0]);
 				
 				$.ajax({
 					type:"post",
@@ -109,7 +95,7 @@
 						if(data.result == "success") {
 							alert("success");
 						} else {
-							alert("failes");
+							alert("failed");
 						}
 					},
 					error:function() {
