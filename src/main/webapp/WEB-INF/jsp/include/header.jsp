@@ -3,17 +3,39 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 		<header>
-			<div class="header-logo">
-				<div class="header-logo-home">AnecDOT.</div>
+			<div class="header-left">
+				<div class="header-logo-home">
+					AnecDOT.
+				</div>
 				<div class="header-logo-page">
 					timeline
 				</div>
 			</div>
-			<div class="header-nav">
-				Nav bar here
+			<div class="header-right">
+				<div class="header-nav">
+					<ul class="nav">
+					  <li class="nav-item">
+					    <a class="nav-link" href="/anecdot/timeline">Timeline</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="/anecdot/calendar">Calendar</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="/anecdot/gallery">Gallery</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="/anecdot/post/create">Post</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="/anecdot/following">Following</a>
+					  </li>
+					</ul>
+				</div>
 				
-				<c:if test="${not empty userName }">
-					<div class="mr-4">${userName }님 <a href="/anecdot/user/signout">로그아웃</a> </div>
-				</c:if>
+				<div class="header-session">
+					<c:if test="${not empty userName }">
+						<div class="mr-4" style="line-height:100%">${userName }님 <a href="/anecdot/user/signout" style="color:gray">로그아웃</a> </div>
+					</c:if>
+				</div>
 			</div>
 		</header>

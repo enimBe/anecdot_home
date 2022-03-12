@@ -39,15 +39,25 @@ public class PostRestController {
 		Post postResult = postBO.getPost(post.getId());
 		int postId = postResult.getId();
 		
-		int countPost = postBO.addPost(userId, title, content);
-		int countImage = postBO.addImage(userId, postId, image);
-		
 		Map<String, String> result = new HashMap<>();
-
-		if(countPost == 1 && countImage == 1) {
-			result.put("result", "success");
+		
+		int countPost = postBO.addPost(userId, title, content);
+		if(image == null) {
+			int countImage = postBO.addImage(userId, postId, image);
+			
+			if(countPost == 1 && countImage == 1) {
+				result.put("result", "success");
+			} else {
+				result.put("result", "fail");
+			}
+			
 		} else {
-			result.put("result", "fail");
+			
+			if(countPost == 1) {
+				result.put("result", "success");
+			} else {
+				result.put("result", "fail");
+			}
 		}
 
 		return result;

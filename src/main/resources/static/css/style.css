@@ -19,13 +19,13 @@ header {
 	margin-bottom: 30px;
 }
 
-header > .header-logo {
+header > .header-left {
 	display: flex;
 	align-items: flex-end;
 	
 }
 
-header > .header-logo > .header-logo-home {
+header > .header-left > .header-logo-home {
 	font-size: 50px;
 	font-weight: 700;
 	letter-spacing: -4px;
@@ -33,16 +33,23 @@ header > .header-logo > .header-logo-home {
 	margin-right: 4px;
 }
 
-header > .header-logo > .header-logo-page {
+header > .header-left > .header-logo-page {
 	font-size: 25px;
 	font-weight: 500;
 	line-height: 100%;
 }
 
-header > .header-nav {
-		
+header > .header-right {
+	display: flex;
+	align-items: flex-end;
 }
 
+header > .header-right > .header-nav > .nav > .nav-item > .nav-link {
+	line-height: 100%;
+	padding-bottom: 0;
+	color: black;
+	font-weight: 500;
+}
 
 .container > .content {
 	width: 100%;
@@ -96,3 +103,67 @@ header > .header-nav {
 	align-items: center;
 	justify-content: space-between;
 }
+
+.container > .content > .post-box {
+	width: 1000px;
+	margin-top: 30px;
+}
+
+.container > .content > .post-box > .post-list {
+	width: 100%;
+	height: 300px;
+	background: yellow;
+}
+
+.container > .content > .post-box > .post-list > .list-table {
+
+}
+
+.container > .content > .post-box > .post-view {
+	width: 100%;
+	height: 500px;
+	background: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
