@@ -36,13 +36,16 @@ public class PostRestController {
 		
 		int userId = (Integer)session.getAttribute("userId");
 		
-		Post postResult = postBO.getPost(post.getId());
-		int postId = postResult.getId();
-		
 		Map<String, String> result = new HashMap<>();
 		
 		int countPost = postBO.addPost(userId, title, content);
-		if(image == null) {
+
+		
+		if(image != null) {
+
+			Post postResult = postBO.getPost(post.getId());
+			int postId = postResult.getId();
+			
 			int countImage = postBO.addImage(userId, postId, image);
 			
 			if(countPost == 1 && countImage == 1) {
@@ -60,6 +63,7 @@ public class PostRestController {
 			}
 		}
 
+		
 		return result;
 		
 	}

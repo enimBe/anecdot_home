@@ -38,13 +38,8 @@
 						<div class="post-upload-files">
 							<div class="selectImage">					
 								<i class="bi-image imgBtn"></i>
-								<input id="imageInput" class="d-none">
+								<input type="file" id="imageInput" class="d-none">
 							</div>
-								
-							<!-- <div class="select-image-options">
-								<i class="bi-link imgPublicBtn d-none"></i>
-								<i class="bi-tag imgGalleryBtn d-none"></i>
-							</div> -->
 						</div>
 							
 						<div class="post-upload-buttons">
@@ -93,7 +88,7 @@
 					enctype:'multipart/form-data',
 					success:function(data) {
 						if(data.result == "success") {
-							alert("success");
+							location.href="/anecdot/post/home";
 						} else {
 							alert("failed");
 						}

@@ -85,7 +85,6 @@ header > .header-right > .header-nav > .nav > .nav-item > .nav-link {
 }
 
 .container > .content > .create-post > .postForm > .post-upload > .post-upload-files {
-	width: 130px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -94,7 +93,6 @@ header > .header-right > .header-nav > .nav > .nav-item > .nav-link {
 
 .container > .content > .create-post > .postForm > .post-upload > .post-upload-files > .selectImgae > .imgBtn {
 	display: inline-block;
-	width: 200px;
 }
 
 .container > .content > .create-post > .postForm > .post-upload > .post-upload-buttons {

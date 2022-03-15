@@ -29,8 +29,8 @@
 					<table class="list-table">
 						<thead>
 							<tr>
-								<th>1</th>
-								<th>2</th>
+								<th>title</th>
+								<th>date</th>
 							</tr>
 						</thead>
 						<tbody>
